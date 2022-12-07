@@ -9,7 +9,7 @@ export interface ToDo {
 export class ApiClient {
   private LOCALSTORAGE_KEY = 'todos';
 
-  constructor(private mockDelay: boolean) {}
+  constructor(private mockDelay: boolean) { }
 
   /**
    * Gets the list of all todos from the (localstorage) database

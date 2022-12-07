@@ -53,6 +53,10 @@ An API client that interacts with a fake database. Read the file over, but you s
 - Include more comments than you would in normal code. This will help us understand your thought process.
 - Take breaks when you need them.
 
+## Thought Processes
+
+1. Looks like it works on refresh. Likely the page is rendering before the addition to the list is complete. So we're still getting the old list. Actually looks like we aren't getting the new list at all.
+
 ## Responses
 
 Please write your responses to the questions in the instructions here. Please indicate any tradeoffs you made.
@@ -61,6 +65,8 @@ Please write your responses to the questions in the instructions here. Please in
 2.
 3.
 4.
+Note: I have 2 monitors and didn't figure out a great way to share that. So to compromise I'm only using the second one to view te app as I work. But will try to drag it into the recorded view for any internet searches or console.logs or anything like that.
+
 
 ## Submitting
 

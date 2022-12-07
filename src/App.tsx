@@ -8,12 +8,21 @@ function App() {
   const [todos, setTodos] = useState<ToDo[]>([]);
   const [label, setLabel] = useState('');
 
-  useEffect(() => {
+  function handleGetToDos() {
     apiClient
       .getToDos()
       .then((fetchedTodos) => setTodos(fetchedTodos))
       .catch(console.error);
+  }
+
+  useEffect(() => {
+    handleGetToDos();
   }, [setTodos]);
+
+  async function handleAddToDoClick(newLabel: string) {
+    await apiClient.addTodo(newLabel);
+    handleGetToDos();
+  }
 
   return (
     <>
@@ -25,7 +34,7 @@ function App() {
           onChange={(e) => setLabel(e.target.value)}
           placeholder="Buy groceries"
         />
-        <button onClick={() => apiClient.addTodo(label)}>Add ToDo</button>
+        <button onClick={() => handleAddToDoClick(label)}>Add ToDo</button>
       </div>
 
       {todos.map((todo) => (
