@@ -56,13 +56,14 @@ An API client that interacts with a fake database. Read the file over, but you s
 ## Thought Processes
 
 1. Looks like it works on refresh. Likely the page is rendering before the addition to the list is complete. So we're still getting the old list. Actually looks like we aren't getting the new list at all.
+2. Initial looks indicated that toggleDone expexts an ID but was receiving label, so the `find` function was (correctly) not finding the match. Fixing this causes it to work on page refresh. This appears to be due to the same issue as with problem 1. After the update we are not querying for the toDoList again. A potential improvement on my solution would be for the jsx to update just that one entry instead of needing to query the entire toDo list again. This would be more performant in cases with a lot of toDos, but the trade-off is the UI could potentially get out of sync with the state.
 
 ## Responses
 
 Please write your responses to the questions in the instructions here. Please indicate any tradeoffs you made.
 
-1.
-2.
+1. My implementation is quick to implement and fixes the bug for smaller datasets, but the user experience for very large datasets would be poor. With this setup the user would have to wait a very long time see the list update if there were 1,000,000+ todos. Some considerations to address that would be to inform the user that the list is updating with the equivalent of a loading icon, or to update the UI immediately while the data is updated in the background (and of course inform the user should the data fail to update).
+2. The API could be updated to throw an error if a provided id is not found in the list of toDos, since it should not be possible to submit an id that does not exist. I would also have made the ids numbers instead of strings, since they all appear to be numbers anyway.
 3.
 4.
 Note: I have 2 monitors and didn't figure out a great way to share that. So to compromise I'm only using the second one to view te app as I work. But will try to drag it into the recorded view for any internet searches or console.logs or anything like that.

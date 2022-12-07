@@ -24,6 +24,11 @@ function App() {
     handleGetToDos();
   }
 
+  async function handleToggleDone(id: string) {
+    await apiClient.toggleDone(id);
+    handleGetToDos();
+  }
+
   return (
     <>
       <h1>To Do List</h1>
@@ -44,7 +49,7 @@ function App() {
           >
             {todo.label}
           </label>
-          <button onClick={() => apiClient.toggleDone(todo.label)}>
+          <button onClick={() => handleToggleDone(todo.id)}>
             Mark {todo.done ? 'Undone' : 'Done'}
           </button>
         </div>
