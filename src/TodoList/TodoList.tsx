@@ -95,26 +95,32 @@ function TodoList() {
 
       {loading
         ? <p>Loading...</p>
-        : (
-          todos.map((todo, index) => (
-            <div
-              key={todo.id}
-              className="todo-item"
-              onDragStart={(e) => dragStart(e, index)}
-              onDragEnter={(e) => dragEnter(e, index)}
-              onDragEnd={drop}
-              draggable
+        : null
+      }
+      {
+        todos.map((todo, index) => (
+          <div
+            key={todo.id}
+            className="todo-item"
+            onDragStart={(e) => dragStart(e, index)}
+            onDragEnter={(e) => dragEnter(e, index)}
+            onDragEnd={drop}
+            draggable
+          >
+            <label
+              style={{ textDecoration: todo.done ? 'line-through' : 'none' }}
             >
-              <label
-                style={{ textDecoration: todo.done ? 'line-through' : 'none' }}
-              >
-                {todo.label}
-              </label>
-              <button onClick={() => handleToggleDone(todo.id)}>
+              {todo.label}
+            </label>
+            {loading
+              ? <button disabled>Loading...</button>
+              : <button onClick={() => handleToggleDone(todo.id)}>
                 Mark {todo.done ? 'Undone' : 'Done'}
               </button>
-            </div>
-          )))
+            }
+
+          </div>
+        ))
       }
     </>
   )
