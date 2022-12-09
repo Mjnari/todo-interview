@@ -69,7 +69,7 @@ function TodoItems({
             onDragStart={(e) => dragStart(e, index)}
             onDragEnter={(e) => dragEnter(e, index)}
             onDragEnd={drop}
-            draggable
+            draggable={!loading}
           >
             <label
               style={{ textDecoration: todo.done ? 'line-through' : 'none' }}
