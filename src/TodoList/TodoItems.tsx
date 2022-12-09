@@ -55,7 +55,7 @@ function TodoItems({
     dragOverItem.current = null;
     callbackSetTodos(copyTodos);
     callbackSetLoading(true);
-    await apiClient.updateTodoOrder(todos);
+    await apiClient.updateTodoOrder(copyTodos);
     callbackSetLoading(false);
   };
 
