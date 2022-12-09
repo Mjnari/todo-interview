@@ -44,6 +44,11 @@ export class ApiClient {
     return newToDo;
   }
 
+  /**
+   * Saves a new todo array. Intended to be used to update the order, but would save any changes
+   * to the array.
+   * @param todos Array of ToDo objects in the desired order
+   */
   async updateTodoOrder(todos: ToDo[]) {
     await this.delay();
     await this.saveTodos(todos);

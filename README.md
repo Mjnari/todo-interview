@@ -53,6 +53,17 @@ An API client that interacts with a fake database. Read the file over, but you s
 - Include more comments than you would in normal code. This will help us understand your thought process.
 - Take breaks when you need them.
 
+## Responses
+
+Please write your responses to the questions in the instructions here. Please indicate any tradeoffs you made.
+
+1. My implementation is quick to implement and fixes the bug for smaller datasets, but the user experience for very large datasets would be poor. With this setup the user would have to wait a very long time see the list update if there were 1,000,000+ todos. Some considerations to address that would be to inform the user that the list is updating with the equivalent of a loading icon, or to update the UI immediately while the data is updated in the background (and of course inform the user should the data fail to update).
+2. The API could be updated to throw an error if a provided id is not found in the list of toDos, since it should not be possible to submit an id that does not exist. I would also have made the ids numbers instead of strings, since they all appear to be numbers anyway.
+3.
+4. I sort of chose to write this myself (really I integrated a solution I found online) because I found that the libraries were either no longer being supported, not really for this use case, were visually not too appealing, or looked like they could take a bit of trouble to setup. I think if I had like a dev day to do this then the library looks much nicer as you can see I don't have great hover states or clear indicators of where the user can drag and drop. But with 3 hours for the interview assessment it seemed risky that it might be troublesome to integrate compared to the much simpler solution I found which relies on built-in HTML attributes and simple hooks.
+
+Note: I have 2 monitors and didn't figure out a great way to share that. So to compromise I'm only using the second one to view te app as I work. But will try to drag it into the recorded view for any internet searches or console.logs or anything like that. Also I added some of my thought processes below to assist.
+
 ## Thought Processes
 
 1. Looks like it works on refresh. Likely the page is rendering before the addition to the list is complete. So we're still getting the old list. Actually looks like we aren't getting the new list at all.
@@ -67,18 +78,6 @@ Found some code that looks pretty quick to wire up. Normally I'd test this in a 
 Drag and drop works now, but I'm suspecting the elements will reset on refresh since I didn't integrate the ApiClient with my solution yet. Testing that and if it is broken then that should be a quick fix.
 
 Should mention that I also made sure to test the edge cases such as moving an item to the bottom, top, or sides.
-
-## Responses
-
-Please write your responses to the questions in the instructions here. Please indicate any tradeoffs you made.
-
-1. My implementation is quick to implement and fixes the bug for smaller datasets, but the user experience for very large datasets would be poor. With this setup the user would have to wait a very long time see the list update if there were 1,000,000+ todos. Some considerations to address that would be to inform the user that the list is updating with the equivalent of a loading icon, or to update the UI immediately while the data is updated in the background (and of course inform the user should the data fail to update).
-2. The API could be updated to throw an error if a provided id is not found in the list of toDos, since it should not be possible to submit an id that does not exist. I would also have made the ids numbers instead of strings, since they all appear to be numbers anyway.
-3.
-4. I sort of chose to write this myself (really I integrated a solution I found online) because I found that the libraries were either no longer being supported, not really for this use case, were visually not too appealing, or looked like they could take a bit of trouble to setup. I think if I had like a dev day to do this then the library looks much nicer as you can see I don't have great hover states or clear indicators of where the user can drag and drop. But with 3 hours for the interview assessment it seemed risky that it might be troublesome to integrate compared to the much simpler solution I found which relies on built-in HTML attributes and simple hooks.
-
-Note: I have 2 monitors and didn't figure out a great way to share that. So to compromise I'm only using the second one to view te app as I work. But will try to drag it into the recorded view for any internet searches or console.logs or anything like that.
-
 
 ## Submitting
 
