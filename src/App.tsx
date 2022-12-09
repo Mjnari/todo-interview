@@ -7,14 +7,14 @@ const apiClient = new ApiClient(true);
 function App() {
   const [todos, setTodos] = useState<ToDo[]>([]);
   const [label, setLabel] = useState('');
-  const [loadingList, setLoadingList] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   function handleGetToDos() {
     apiClient
       .getToDos()
       .then((fetchedTodos) => {
         setTodos(fetchedTodos)
-        setLoadingList(false);
+        setLoading(false);
       })
       .catch(console.error);
   }
@@ -24,13 +24,13 @@ function App() {
   }, [setTodos]);
 
   async function handleAddToDoClick(newLabel: string) {
-    setLoadingList(true);
+    setLoading(true);
     await apiClient.addTodo(newLabel);
     handleGetToDos();
   }
 
   async function handleToggleDone(id: string) {
-    setLoadingList(true);
+    setLoading(true);
     await apiClient.toggleDone(id);
     handleGetToDos();
   }
@@ -45,13 +45,13 @@ function App() {
           onChange={(e) => setLabel(e.target.value)}
           placeholder="Buy groceries"
         />
-        {loadingList
+        {loading
           ? <span>Loading...</span>
           : <button onClick={() => handleAddToDoClick(label)}>Add ToDo</button>
         }
       </div>
 
-      {loadingList
+      {loading
         ? <p>Loading...</p>
         : (
           todos.map((todo) => (
