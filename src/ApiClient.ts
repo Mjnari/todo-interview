@@ -44,6 +44,11 @@ export class ApiClient {
     return newToDo;
   }
 
+  async updateTodoOrder(todos: ToDo[]) {
+    await this.delay();
+    await this.saveTodos(todos);
+  }
+
   /**
    * Toggles the 'done' state of a todo
    * @param id The ID of the todo to toggle
