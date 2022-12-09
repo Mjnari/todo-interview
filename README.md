@@ -66,6 +66,8 @@ Found some code that looks pretty quick to wire up. Normally I'd test this in a 
 
 Drag and drop works now, but I'm suspecting the elements will reset on refresh since I didn't integrate the ApiClient with my solution yet. Testing that and if it is broken then that should be a quick fix.
 
+Should mention that I also made sure to test the edge cases such as moving an item to the bottom, top, or sides.
+
 ## Responses
 
 Please write your responses to the questions in the instructions here. Please indicate any tradeoffs you made.
