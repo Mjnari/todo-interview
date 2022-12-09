@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { ToDo } from '../ApiClient';
 import { TodoItemsProps } from './interfaces';
+import './styles.css';
 
 function TodoItems({
   apiClient,
@@ -59,10 +60,10 @@ function TodoItems({
   };
 
   return (
-    <>
+    <ul className="todo-list">
       {
         todos.map((todo: ToDo, index: number) => (
-          <div
+          <li
             key={todo.id}
             className="todo-item"
             onDragStart={(e) => dragStart(e, index)}
@@ -81,11 +82,10 @@ function TodoItems({
                 Mark {todo.done ? 'Undone' : 'Done'}
               </button>
             }
-
-          </div>
+          </li>
         ))
       }
-    </>
+    </ul>
   );
 }
 

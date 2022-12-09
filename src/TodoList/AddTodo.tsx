@@ -18,7 +18,7 @@ function AddTodo({ apiClient, callbackSetLoading, callbackHandleGetTodos, loadin
                 placeholder="Buy groceries"
             />
             {loading
-                ? <span>Loading...</span>
+                ? <button disabled>Loading...</button>
                 : <button onClick={() => handleAddToDoClick(label)}>Add ToDo</button>
             }
         </div>

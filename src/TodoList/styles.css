@@ -1,0 +1,7 @@
+.todo-list {
+  padding: 0;
+}
+
+.todo-item {
+  cursor: grab;
+}
